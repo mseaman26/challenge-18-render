@@ -42,14 +42,7 @@ const startApolloServer = async () => {
     }
   ));
 
-  if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
-
-    app.get('*', (_req: Request, res: Response) => {
-      //altered this path
-      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-    });
-  }
+app.use(express.static('../client/dist'));
 
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
