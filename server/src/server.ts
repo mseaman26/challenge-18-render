@@ -1,8 +1,4 @@
 import express from 'express';
-import path from 'node:path';
-import type { Request, Response } from 'express';
-//not included in develop
-import { fileURLToPath } from 'node:url';
 // Import the ApolloServer class
 import {
   ApolloServer,
@@ -25,8 +21,6 @@ const server = new ApolloServer({
 const app = express();
 
 //not included in develop
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {
