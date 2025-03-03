@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import type { Request, Response } from 'express';
+//not included in develop
 import { fileURLToPath } from 'node:url';
 // Import the ApolloServer class
 import {
@@ -23,6 +24,7 @@ const server = new ApolloServer({
 
 const app = express();
 
+//not included in develop
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -44,7 +46,7 @@ const startApolloServer = async () => {
     app.use(express.static(path.join(__dirname, '../client/dist')));
 
     app.get('*', (_req: Request, res: Response) => {
-      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+      res.sendFile(path.join(__dirname, '../../../client/dist/index.html'));
     });
   }
 
